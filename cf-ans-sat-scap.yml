@@ -4,4 +4,4 @@
   remote_user: root
   tasks: 
     - name: OpenScap scan
-      cmd: foreman_scap_client 1
+      shell: foreman_scap_client 1
