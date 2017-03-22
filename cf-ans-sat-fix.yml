@@ -34,6 +34,7 @@
       file:
        path: /tmp/content
        state: absent
+
     - name: Update Satellite compliance results
-      shell: foreman_scap_client 1
+      shell: foreman_scap_client '{{ policy_id }}'
 
