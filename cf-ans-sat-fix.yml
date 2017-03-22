@@ -1,6 +1,5 @@
 ---
 - hosts: all
-  remote_user: root
   vars: 
   tasks:
     - name: Puppet run to get foreman_scap_client config

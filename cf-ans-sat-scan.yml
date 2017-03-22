@@ -1,7 +1,6 @@
 ---
 # This will run openscap scans if a host is registered to Satellite 6, and assigned a policy
 - hosts: all
-  remote_user: root
   tasks: 
     - name: OpenScap scan
       shell: foreman_scap_client '{{ policy_id }}'
