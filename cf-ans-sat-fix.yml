@@ -18,6 +18,11 @@
       ignore_errors: yes
       register: command_result
       failed_when: "'FAILED' in command_result.stderr"
+   
+    - name: Install openscap-utils
+      yum: 
+        name: openscap-utils
+        state: latest
 
     - name: remediate openscap
       shell: "oscap xccdf eval  --fetch-remote-resources  --remediate --profile '{{ profile_contents.stdout }}' /tmp/content"
