@@ -16,4 +16,4 @@ At this point, the remediation playbook will make use of Satellite's OpenSCAP pr
 ## Variables exposed
 
 Both the scan & the remediation playbooks make use of the "policy_id" variable, which is simply the ID number of the policy in Satellite.  See /api/v2/compliance/policies for the complete listing with IDs.
-The remediation playbook has a "sat_server" variable to build the URL to download the scap content file from.  The format for this should be "https://<satellte ip or hostname>:9090".
+The remediation playbook has a "sat_server" variable to build the URL to download the scap content file from.  The format for this should be "https://satellte ip or hostname:9090".
