@@ -1,16 +1,17 @@
 ---
 - hosts: all
   remote_user: root
+  vars: 
   tasks:
     - name: Puppet run to get foreman_scap_client config
       shell: puppet agent -t
 
     - name: get profile
-      shell: "grep profile /etc/foreman_scap_client/config.yaml|cut -d ':' -f3| sed -e 's/^[ \t]*//'"
+      shell: "grep -A5 '{{ policy_id }}': /etc/foreman_scap_client/config.yaml| grep profile | awk '{print $2}'| sed -e 's/^[ \t]*//'"
       register: profile_contents
 
     - name: get download path
-      shell: grep download_path /etc/foreman_scap_client/config.yaml|cut -d ':' -f3| sed -e "s/[' \t]*//g"
+      shell: grep -A5 '{{policy_id }}'':' /etc/foreman_scap_client/config.yaml|grep download_path |awk '{print $2}'| sed -e "s/[' \t]*//g"
       register: download_contents
 
     - name: download profile
